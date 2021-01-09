@@ -109,3 +109,5 @@ class UCCLIClient extends Client{
 
 console.log('Hi!');
 new UCCLIClient().start();
+
+module.exports = UCCLIClient;
