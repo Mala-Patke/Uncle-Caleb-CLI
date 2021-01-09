@@ -10,6 +10,5 @@ module.exports = {
             client.disableMessageListener();
             client.sendMessage(`Disconnected`);
         }
-        
     }
 }
