@@ -6,6 +6,8 @@ const { join } = require('path');
 const chalk = require('chalk');
 const ansiEscapes = require('ansi-escapes');
 
+const { token } = require(join(__dirname, '/private/token.json'))
+
 class UCCLIClient extends Client{
     constructor(options = {}){
         super(options);
@@ -15,10 +17,12 @@ class UCCLIClient extends Client{
     interface;
     connectedchannel = { id: false };
     commands = new Collection();
+    /*
     activity = {
         type: '',
         text: ''
     }
+    */
 
     functions = {
         /**
@@ -28,7 +32,6 @@ class UCCLIClient extends Client{
             return val.toString(16);
         }
     };
-    
 
     interfaceInit(){
         this.interface = createInterface({
@@ -72,7 +75,6 @@ class UCCLIClient extends Client{
             let command = require(join(__dirname, `/commands/${file}`));
             this.commands.set(command.name, command);
         }
-        console.log(this.commands.toJSON())
     }
 
     /**
@@ -99,7 +101,7 @@ class UCCLIClient extends Client{
     }
 
     start(){
-        this.login('NzI4MTEzNDM1MDczNzA4MDY0.Xv1sZA.mgnL8pm-wW-d7gNKfcVRjLIbiCE');
+        this.login(token);
         this.loadCommands();
         this.interfaceInit();
     }
