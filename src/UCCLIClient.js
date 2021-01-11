@@ -62,9 +62,10 @@ class UCCLIClient extends Client{
         return this.commands.get(arg);
     }
 
-    sendMessage(message){
+    sendMessage(message, ...others){
         clearLine(process.stdout, 0);
         cursorTo(process.stdout, 0);
+        others.forEach(arg => message += `\n${arg}`);
         console.log(message);
         this.interface.prompt(true);
     }
@@ -104,10 +105,13 @@ class UCCLIClient extends Client{
         this.login(token);
         this.loadCommands();
         this.interfaceInit();
+        this.sendMessage(
+            ``
+        )
     }
 }
 
-console.log('Hi!');
+
 new UCCLIClient().start();
 
 module.exports = UCCLIClient;
