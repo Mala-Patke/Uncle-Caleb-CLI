@@ -85,6 +85,14 @@ class UCCLIClient extends Client{
         if(!this.connectedchannel) return;
         if(message.channel.id !== this.connectedchannel.id) return;
         if(message.author.id === this.user.id) return;
+
+        let color;
+        if(!message.member.roles.color){
+            color = '#ffffff';
+        } else {
+            color = message.member.roles.color.color;
+        }
+        
         let mstr = ``;
         mstr += chalk.hex(this.functions.dectoHex(message.member.roles.color.color))(`${message.member.nickname || message.author.username}`);
         mstr += ` (${message.author.tag}) - ${message.content}`;
