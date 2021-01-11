@@ -1,5 +1,6 @@
 module.exports = {
     name: 'disconnect',
+    description: 'Disconnects from connected channel',
     /**
      * @param {import('../UCCLIClient')} client 
      * @param {string[]} args 

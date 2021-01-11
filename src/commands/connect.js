@@ -1,5 +1,6 @@
 module.exports = {
     name: 'connect',
+    description:'Connects to a channel',
     /**
      * @param {import('../UCCLIClient')} client 
      * @param {string[]} args 

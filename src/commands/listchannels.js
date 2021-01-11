@@ -1,5 +1,6 @@
 module.exports = {
     name:'listchannels',
+    description: 'Lists all channels with optional search arg',
    /**
      * @param {import('../UCCLIClient')} client 
      * @param {string[]} args
